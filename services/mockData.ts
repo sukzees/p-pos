@@ -1,7 +1,7 @@
 
-import { 
-  SystemSettings, Role, User, Zone, Table, TableStatus, Category, 
-  InventoryItem, MenuItem, Order, OrderStatus, Customer, Coupon, Booking 
+import {
+  SystemSettings, Role, User, Zone, Table, TableStatus, Category,
+  InventoryItem, MenuItem, Order, OrderStatus, Customer, Coupon, Booking
 } from '../types';
 
 export const INITIAL_SETTINGS: SystemSettings = {
@@ -32,27 +32,27 @@ export const INITIAL_SETTINGS: SystemSettings = {
     showPaymentMethod: true
   },
   categoryMapping: {
-      'c1': 'kitchen', // Appetizers
-      'c2': 'kitchen', // Main Course
-      'c3': 'kitchen', // Soups
-      'c4': 'kitchen', // Desserts
-      'c5': 'bar'      // Beverages
+    'c1': 'kitchen', // Appetizers
+    'c2': 'kitchen', // Main Course
+    'c3': 'kitchen', // Soups
+    'c4': 'kitchen', // Desserts
+    'c5': 'bar'      // Beverages
   },
   loyaltyProgram: {
-      enabled: true,
-      spendRate: 100 // 1 Point per 100 Currency Units
+    enabled: true,
+    spendRate: 100 // 1 Point per 100 Currency Units
   }
 };
 
 export const INITIAL_ROLES: Role[] = [
-  { 
-    id: 'r1', 
+  {
+    id: 'r1',
     name: 'Admin',
     isSystem: true,
     permissions: [
-      'view_dashboard', 'access_pos', 'view_orders', 'view_bar', 'manage_tables', 
-      'manage_menu', 'manage_inventory', 'manage_promotions', 
-      'manage_bookings', 'manage_customers', 'manage_employees', 
+      'view_dashboard', 'access_pos', 'view_orders', 'view_bar', 'manage_tables',
+      'manage_menu', 'manage_inventory', 'manage_promotions',
+      'manage_bookings', 'manage_customers', 'manage_employees',
       'view_reports', 'manage_settings'
     ]
   },
@@ -60,8 +60,8 @@ export const INITIAL_ROLES: Role[] = [
     id: 'r2',
     name: 'Manager',
     permissions: [
-      'view_dashboard', 'access_pos', 'view_orders', 'view_bar', 'manage_tables', 
-      'manage_menu', 'manage_inventory', 'manage_promotions', 
+      'view_dashboard', 'access_pos', 'view_orders', 'view_bar', 'manage_tables',
+      'manage_menu', 'manage_inventory', 'manage_promotions',
       'manage_bookings', 'manage_customers', 'view_reports'
     ]
   },
@@ -82,7 +82,7 @@ export const INITIAL_ROLES: Role[] = [
 ];
 
 export const INITIAL_USERS: User[] = [
-  { id: 'u1', name: 'Admin User', username: 'admin', password: '123', roleId: 'r1' },
+  { id: 'u1', name: 'Admin User', username: 'admin', password: '1234', roleId: 'r1' },
   { id: 'u2', name: 'John Manager', username: 'manager', password: '123', roleId: 'r2' },
   { id: 'u3', name: 'Sarah Staff', username: 'staff', password: '123', roleId: 'r3' },
   { id: 'u4', name: 'Chef Mike', username: 'kitchen', password: '123', roleId: 'r4' },
@@ -122,61 +122,61 @@ export const INITIAL_INVENTORY: InventoryItem[] = [
 ];
 
 export const INITIAL_MENU: MenuItem[] = [
-  { 
-    id: 'm1', 
-    name: 'Pad Thai', 
-    price: 79000, 
-    categoryId: 'c2', 
+  {
+    id: 'm1',
+    name: 'Pad Thai',
+    price: 79000,
+    categoryId: 'c2',
     description: 'Stir-fried rice noodles with eggs, peanuts, and shrimp.',
     image: 'https://images.unsplash.com/photo-1559314809-0d155014e29e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     isAvailable: true,
     recipe: [{ inventoryItemId: 'inv3', quantity: 0.1 }, { inventoryItemId: 'inv4', quantity: 1 }]
   },
-  { 
-    id: 'm2', 
-    name: 'Tom Yum Kung', 
-    price: 119000, 
-    categoryId: 'c3', 
+  {
+    id: 'm2',
+    name: 'Tom Yum Kung',
+    price: 119000,
+    categoryId: 'c3',
     description: 'Spicy and sour prawn soup with lemongrass and galangal.',
     image: 'https://images.unsplash.com/photo-1548943487-a2e4e43b485c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     isAvailable: true,
     recipe: [{ inventoryItemId: 'inv3', quantity: 0.2 }, { inventoryItemId: 'inv5', quantity: 0.5 }]
   },
-  { 
-    id: 'm3', 
-    name: 'Green Curry', 
-    price: 99000, 
-    categoryId: 'c2', 
+  {
+    id: 'm3',
+    name: 'Green Curry',
+    price: 99000,
+    categoryId: 'c2',
     description: 'Thai chicken green curry with eggplant and basil.',
     image: 'https://images.unsplash.com/photo-1626804475297-411dbe63725e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     isAvailable: true,
     recipe: [{ inventoryItemId: 'inv2', quantity: 0.2 }, { inventoryItemId: 'inv5', quantity: 1 }]
   },
-  { 
-    id: 'm4', 
-    name: 'Mango Sticky Rice', 
-    price: 79000, 
-    categoryId: 'c4', 
+  {
+    id: 'm4',
+    name: 'Mango Sticky Rice',
+    price: 79000,
+    categoryId: 'c4',
     description: 'Sweet sticky rice with fresh mango and coconut cream.',
     image: 'https://images.unsplash.com/photo-1629196911514-cfd8d628b26e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     isAvailable: true,
     recipe: [{ inventoryItemId: 'inv1', quantity: 0.1 }, { inventoryItemId: 'inv6', quantity: 0.2 }]
   },
-  { 
-    id: 'm5', 
-    name: 'Thai Iced Tea', 
-    price: 39000, 
-    categoryId: 'c5', 
+  {
+    id: 'm5',
+    name: 'Thai Iced Tea',
+    price: 39000,
+    categoryId: 'c5',
     description: 'Authentic Thai tea with condensed milk.',
     image: 'https://images.unsplash.com/photo-1594266063697-30af7f22b0c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     station: 'bar',
     isAvailable: true
   },
-  { 
-    id: 'm6', 
-    name: 'Spring Rolls', 
-    price: 59000, 
-    categoryId: 'c1', 
+  {
+    id: 'm6',
+    name: 'Spring Rolls',
+    price: 59000,
+    categoryId: 'c1',
     description: 'Crispy vegetable spring rolls with sweet chili sauce.',
     image: 'https://images.unsplash.com/photo-1544510802-3932e67a577d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     isAvailable: true
